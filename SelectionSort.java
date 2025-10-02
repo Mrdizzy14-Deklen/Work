@@ -1,7 +1,7 @@
 
 // Selection Sort
 public class SelectionSort {
-	public static double[] doSelectionSort(int[] arr) {
+	public static long[] doSelectionSort(int[] arr) {
         int comps = 0;
         int moves = 0;
         double startTime = System.nanoTime();
@@ -19,6 +19,6 @@ public class SelectionSort {
 			arr[i] = smallerNumber;
             moves++;
 		}
-        return new double[]{comps, moves, (System.nanoTime() - startTime)};
+        return new long[]{comps, moves};
 	}
 }

@@ -1,5 +1,3 @@
-
-// Merge Sort
 public class MergeSort {
     private int[] array;
     private int[] tempMergArr;
@@ -22,8 +20,7 @@ public class MergeSort {
 
 	private void doMergeSort(int lowerIndex, int higherIndex) {
 		if (lowerIndex < higherIndex) {
-            comps++;
-			int middle = lowerIndex + (lowerIndex + higherIndex) / 2;
+			int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
 			doMergeSort(lowerIndex, middle);
 			doMergeSort(middle + 1, higherIndex);
 			mergeParts(lowerIndex, middle, higherIndex);

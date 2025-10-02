@@ -6,7 +6,7 @@ public class QuickSort {
     private int comps;
     private double startTime;
 
-	public double[] quickSort(int[] array, int lowerIndex, int higherIndex) {
+	public long[] quickSort(int[] array, int lowerIndex, int higherIndex) {
         this.comps = 0;
         this.moves = 0;
         this.startTime = System.nanoTime();
@@ -32,7 +32,7 @@ public class QuickSort {
 			quickSort(array, lowerIndex, j);
 		if (i < higherIndex)
 			quickSort(array, i, higherIndex);
-        return new double[]{comps, moves, (System.nanoTime() - startTime)};
+        return new long[]{comps, moves};
 	}
 	private void exchangeNumbers(int[] array, int i, int j) {
 		int temp = array[i];
