@@ -1,34 +1,37 @@
 public class InsertionSort {
 
-    /**
-     * Sorts an array using Insertion Sort and tracks comparisons and movements.
-     * @param a the array of integers to sort.
-     * @param stats an array to store statistics: stats[0] for comparisons, stats[1] for movements.
-     */
-    public static long[] sort(int[] a) {
-        long comparisons = 0;
-        long movements = 0;
+    // First loop (n) Second loop (n) = O(n^2)
 
+    public static long[] sort(int[] a) {
+
+        // Define counters
+        long comps = 0;
+        long moves = 0;
+
+        // Loop through the array (n)
         for (int i = 1; i < a.length; i++) {
             int temp = a[i];
-            movements++; // Count saving to temp as one move
+            moves++;
 
             int j;
-            // The comparison happens as part of the loop condition
+            // Loop through the array for each element (n)
             for (j = i - 1; j >= 0; j--) {
-                comparisons++;
+                comps++;
+
+                // Move element to correct position
                 if (temp < a[j]) {
                     a[j + 1] = a[j];
-                    movements++; // Count shifting element as one move
+                    moves++;
                 } else {
-                    // No need to compare further, element is in position
+                    // Element in position
                     break;
                 }
             }
+            // Replace element
             a[j + 1] = temp;
-            movements++; // Count placing temp back as one move
+            moves++;
         }
 
-		return new long[]{comparisons, movements};
+		return new long[]{comps, moves};
     }
 }
